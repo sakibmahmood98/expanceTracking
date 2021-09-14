@@ -25,4 +25,12 @@ export class AccountService {
     let localStorageItem = JSON.parse(localStorage.getItem(storage) as any);
     return localStorageItem
   }
+
+  public removeDatas(text: any, storage: string): any {
+    let data = this.getDatas(storage);
+    const index = data.findIndex((s: any)=> s.text === text);
+    //console.log(index);
+    return index;
+  }
+
 }
