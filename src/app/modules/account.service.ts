@@ -18,7 +18,7 @@ export class AccountService {
   }
 
   public setLocatStorageDatas(datas: Data[], storage: string):void {
-    localStorage.setItem(storage,JSON.stringify({datas: datas}));
+    localStorage.setItem(storage,JSON.stringify(datas as any));
   }
 
   public getDatas(storage: string): Data[] {
