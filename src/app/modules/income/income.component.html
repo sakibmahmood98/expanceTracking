@@ -23,6 +23,12 @@
       mat-stroked-button color="basic"
       > Submit</button>
 
+      <div class="display-center">
+
+        {{totalIncome | currency:'BDT ' : true: '2.2-2'}}
+    
+    </div>
+
 
 </div>
 <li *ngFor="let data of retrieveData">
