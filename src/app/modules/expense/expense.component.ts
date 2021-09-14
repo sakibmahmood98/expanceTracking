@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Data } from 'src/app/classes/data';
-import { AccountService } from '../account.service';
+import { AccountService } from 'src/app/core/account.service';
+
 
 @Component({
   selector: 'app-expense',

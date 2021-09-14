@@ -6,7 +6,7 @@ import { ExpenseRoutingModule } from './expense-routing.module';
 import { ExpenseComponent } from './expense.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AccountService } from '../account.service';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -19,11 +19,9 @@ import { AccountService } from '../account.service';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
 
-  ],
-  providers: [
-    AccountService
   ]
 })
 export class ExpenseModule { }

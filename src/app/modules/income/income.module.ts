@@ -5,9 +5,8 @@ import { IncomeRoutingModule } from './income-routing.module';
 import { IncomeComponent } from './income.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AccountService } from '../account.service';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -20,10 +19,8 @@ import { AccountService } from '../account.service';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    AccountService
+    ReactiveFormsModule,
+    CoreModule
   ]
 })
 export class IncomeModule { }
