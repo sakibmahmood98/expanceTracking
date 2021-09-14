@@ -23,8 +23,19 @@
       mat-stroked-button color="basic"
       > Submit</button>
 
+ 
+<div class="display-center">
+
+    {{totalExpense | currency:'BDT ' : true: '3.2-2'}}
+
+</div>
+
 </div>
 <li *ngFor="let data of retrieveData">
     {{data.text}} : {{data.amount}}
+
+    <button (click)="removeExpenseItem(data.text)"
+      mat-stroked-button color="basic"
+      > Delete</button>
 </li>
 </div>
