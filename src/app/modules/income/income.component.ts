@@ -9,7 +9,7 @@ import { AccountService } from '../account.service';
 })
 export class IncomeComponent implements OnInit {
   private incomeData!: Data[];
-
+  public retrieveData: Data[];
   
 
   constructor(private accountService: AccountService) {
@@ -17,6 +17,8 @@ export class IncomeComponent implements OnInit {
       new Data("Income01", 1000),
       new Data("Income02", 2000),
     ];
+    this.accountService.setLocatStorageDatas(this.incomeData, 'incomeStorage');
+    this.retrieveData = this.accountService.getDatas('incomeStorage');
    }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class IncomeComponent implements OnInit {
     this.incomeData.push(this.accountService.addData(text, numberamount));
 
     this.accountService.setLocatStorageDatas(this.incomeData, 'incomeStorage');
-    let retrieveData = this.accountService.getDatas('incomeStorage');
-    console.log(retrieveData);
+    this.retrieveData = this.accountService.getDatas('incomeStorage');
+    //console.log(this.retrieveData);
   }
 }

@@ -17,10 +17,15 @@
         <mat-label>Amount</mat-label>
         <input matInput placeholder="1000" id="amount" name="amount" #amount>
     </mat-form-field>
+</form>
 
     <button (click)="addIncome(text.value, amount.value)"
       mat-stroked-button color="basic"
       > Submit</button>
-</form>
+
+
 </div>
+<li *ngFor="let data of retrieveData">
+    {{data.text}} : {{data.amount}}
+</li>
 </div>
