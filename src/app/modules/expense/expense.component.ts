@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Data } from 'src/app/classes/data';
 import { AccountService } from '../account.service';
 
@@ -11,27 +10,29 @@ import { AccountService } from '../account.service';
 export class ExpenseComponent implements OnInit {
 
   private expenseData!: Data[];
+  public retrieveData: Data[];
 
   constructor(private accountService: AccountService) {
     this.expenseData = [
       new Data("Expense01", 1000),
       new Data("Expense02", 2000)
     ];
+    this.accountService.setLocatStorageDatas(this.expenseData, 'expenseStorage');
+    this.retrieveData = this.accountService.getDatas('expenseStorage');
    }
 
   ngOnInit(): void {
-
   }
 
   addExpenses(text: any, amount:string) {
     var numberamount: number = +amount
-    console.log(text, numberamount);
+    //console.log(text, numberamount);
     this.expenseData.push(this.accountService.addData(text, numberamount));
 
     this.accountService.setLocatStorageDatas(this.expenseData, 'expenseStorage');
     
-    let retrieveData = this.accountService.getDatas('expenseStorage');
-    console.log(retrieveData);
+    this.retrieveData = this.accountService.getDatas('expenseStorage');
+    //console.log(this.retrieveData);
   }
 }
 
