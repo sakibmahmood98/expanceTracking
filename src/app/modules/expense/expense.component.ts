@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Data } from 'src/app/classes/data';
-import { AccountService } from 'src/app/core/account.service';
+import { StorageService } from 'src/app/core/storage.service';
 
 
 @Component({
@@ -15,10 +15,11 @@ export class ExpenseComponent implements OnInit {
   storage = 'expenseStorage';
   totalExpense = 0;
 
-  constructor(private accountService: AccountService) {
+  constructor(private service: StorageService) {
     this.expenseData = [
-      new Data('Expense01', 1000),
-      new Data('Expense02', 2000)
+      {text: 'Expense01', amount: 1000},
+      {text: 'Expense01', amount: 2000},
+
     ];
     this.totalExpense = 3000;
 
@@ -31,15 +32,15 @@ export class ExpenseComponent implements OnInit {
 
   addExpenses(text: any, amount:string) {
     var numberamount: number = +amount
-    //console.log(text, numberamount);
-    this.expenseData.push(this.accountService.addData(text, numberamount));
+
+    this.expenseData.push(this.service.addData(text, numberamount));
     this.totalExpense = this.totalExpense + this.expenseData[this.expenseData.length - 1 ].amount ; 
     this.updateLocalStorage();
-    //console.log(this.retrieveData);
+
   }
 
   removeExpenseItem(text: any){
-    const index = this.accountService.removeDatas(text,this.storage) as number;
+    const index = this.service.removeDatas(text,this.storage) as number;
     if (index > -1) {
       this.totalExpense = this.totalExpense - this.expenseData[index].amount ;
       this.expenseData.splice(index,1); 
@@ -48,11 +49,10 @@ export class ExpenseComponent implements OnInit {
   }
 
 
-
   updateLocalStorage() {
 
-    this.accountService.setLocatStorageDatas(this.expenseData, this.storage);
-    this.retrieveData = this.accountService.getDatas(this.storage);
+    this.service.setLocatStorageDatas(this.expenseData, this.storage);
+    this.retrieveData = this.service.getDatas(this.storage);
 
   }
 

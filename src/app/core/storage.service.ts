@@ -4,7 +4,7 @@ import { Data } from  '../classes/data';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService {
+export class StorageService{
   
 
   constructor() { 
@@ -12,7 +12,8 @@ export class AccountService {
   }
 
   public addData(text: string, amount: number) : any {
-    let data = new Data(text,amount);
+    let data ={ text: text, amount: amount};
+
     return data;
     
   }
@@ -29,7 +30,7 @@ export class AccountService {
   public removeDatas(text: any, storage: string): any {
     let data = this.getDatas(storage);
     const index = data.findIndex((s: any)=> s.text === text);
-    //console.log(index);
+
     return index;
   }
 

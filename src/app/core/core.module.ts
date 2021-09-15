@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccountService } from './account.service';
+import { StorageService } from './storage.service';
 
 
 
@@ -10,7 +10,7 @@ import { AccountService } from './account.service';
     CommonModule
   ],
   providers: [
-    AccountService
+    StorageService
   ]
 })
 export class CoreModule { }

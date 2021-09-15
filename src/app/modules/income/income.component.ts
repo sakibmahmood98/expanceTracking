@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from 'src/app/classes/data';
-import { AccountService } from 'src/app/core/account.service';
+import { StorageService } from 'src/app/core/storage.service';
 
 @Component({
   selector: 'app-income',
@@ -13,11 +13,13 @@ export class IncomeComponent implements OnInit {
   storage = 'incomeStorage';
   totalIncome = 0;
 
-  constructor(private accountService: AccountService) {
+  constructor(private service: StorageService) {
     this.incomeData = [
-      new Data("Income01", 1000),
+      {text: 'Income01', amount: 2000},
+      {text: 'Income02', amount: 3000},
+
     ];
-    this.totalIncome = 1000;
+    this.totalIncome = 5000;
     this.updateLocalStorage();
    }
 
@@ -27,15 +29,15 @@ export class IncomeComponent implements OnInit {
 
   addIncome(text: any, amount:string) {
     var numberamount: number = +amount
-    //console.log(text, numberamount);
-    this.incomeData.push(this.accountService.addData(text, numberamount));
+
+    this.incomeData.push(this.service.addData(text, numberamount));
     this.totalIncome = this.totalIncome + this.incomeData[this.incomeData.length - 1 ].amount ; 
     this.updateLocalStorage();
-    //console.log(this.retrieveData);
+
   }
 
   removeIncomeItem(text: any){
-    const index = this.accountService.removeDatas(text,this.storage);
+    const index = this.service.removeDatas(text,this.storage);
     if (index > -1) {
       this.totalIncome = this.totalIncome - this.incomeData[index].amount ; 
       this.incomeData.splice(index,1);
@@ -46,11 +48,8 @@ export class IncomeComponent implements OnInit {
 
   updateLocalStorage(){
 
-    this.accountService.setLocatStorageDatas(this.incomeData, this.storage);
-    this.retrieveData = this.accountService.getDatas(this.storage);
-
-    //this.totalIncome = this.totalIncome+this.retrieveData[this.retrieveData.length -1 ].amount;
-    //console.log(this.totalIncome);
+    this.service.setLocatStorageDatas(this.incomeData, this.storage);
+    this.retrieveData = this.service.getDatas(this.storage);
   }
 
   

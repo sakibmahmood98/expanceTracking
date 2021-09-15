@@ -1,9 +1,7 @@
-export class Data {
+export interface Data {
     text: string;
     amount: number
-  
-    constructor(text: string, amount: number) {
-      this.text = text;
-      this.amount = amount
-    }
-  }
+}
+
+  //convert from class to interface
+  //create a folder in core and store the interface in created folder named models.
