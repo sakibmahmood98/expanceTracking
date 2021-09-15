@@ -11,8 +11,10 @@
 - Delete a specific expense or income. 
 - Calculate total expense & total income.
 
-
+# Angular Form
+- Templete-driven form & reactive form.
 
 # Advance Task
 - Add Date input field for expense & income form.
 - Decrease the income amount by expanses.
+
