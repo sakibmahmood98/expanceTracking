@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Data } from 'src/app/classes/data';
+import { Data } from 'src/app/core/models/data';;
 import { StorageService } from 'src/app/core/storage.service';
 
 
