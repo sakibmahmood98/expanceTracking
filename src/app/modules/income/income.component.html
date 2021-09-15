@@ -7,38 +7,48 @@
 <div>
     <div class="display-center">
 
-<form>
-    <mat-form-field appearance="fill">
-      <mat-label>Text Field</mat-label>
-      <input matInput placeholder="Salary" id="text" name="text" #text>
-    </mat-form-field>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+ 
+            <p>
+              <label for="text">Text</label>
+              <input 
+              id="text"
+              type="text" 
+              name="text" 
+              formControlName="text" 
+              >
+            </p>
+           
+            <p>
+              <label for="amount">Amount</label>
+              <input
+              id="amount"
+              type="text" 
+              name="amount" 
+              formControlName="amount"
+              >
+            </p>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Amount</mat-label>
-        <input matInput placeholder="1000" id="amount" name="amount" #amount>
-    </mat-form-field>
-</form>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
 
-    <button (click)="addIncome(text.value, amount.value)"
-      mat-stroked-button color="basic"
-      > Submit</button>
+        </form>
+        
+        <div class="display-center">
+            {{totalIncome | currency:'BDT ' : 'symbol' : '2.2-2'}}
 
-      <div class="display-center">
-
-        {{totalIncome | currency:'BDT ' : true: '2.2-2'}}
-    
+        </div>
     </div>
+    <ul>
+        <li 
+        class="list-center" 
+        *ngFor="let data of retrieveData"
+        >
+        {{data.text}} : {{data.amount}}<button type="button" (click)="removeIncomeItem(data.text)"> Delete
 
+        </button>
+    </li>
+</ul>
 
-</div>
-<mat-list>
-    <mat-list-item class="list-center" *ngFor="let data of retrieveData">
-        {{data.text}} : {{data.amount}}
-    
-    <button (click)="removeIncomeItem(data.text)"
-    mat-stroked-button color="basic"
-    > Delete</button>
-
-    </mat-list-item>
-</mat-list>
 </div>
