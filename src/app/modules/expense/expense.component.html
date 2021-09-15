@@ -10,12 +10,12 @@
         <form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm)">
             <p>
               <label for="text">Text</label>
-              <input type="text" name="text" #text ngModel>
+              <input type="text" name="text" placeholder="Type Expenses" #text ngModel>
             </p>
 
             <p>
               <label for="amount">Amount</label>
-              <input type="text" name="amount" #amount ngModel>
+              <input type="text" name="amount" placeholder="1000" #amount ngModel>
             </p>
 
             <p>
