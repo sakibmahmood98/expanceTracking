@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Data } from 'src/app/core/models/data';
 import { StorageService } from 'src/app/core/storage.service';
 
@@ -30,8 +30,9 @@ export class IncomeComponent implements OnInit {
     this.totalIncome = 5000;
     this.updateLocalStorage();
    }
-
+   
   ngOnInit(): void {
+
     
   }
 
@@ -59,6 +60,11 @@ export class IncomeComponent implements OnInit {
 
     this.service.setLocatStorageDatas(this.incomeData, this.storage);
     this.retrieveData = this.service.getDatas(this.storage);
+
+    // this.retrieveData.forEach(x=>{
+    //   this.form.addControl(x.text,new FormControl(x.amount) );
+    //  });
+
   }
   
 }

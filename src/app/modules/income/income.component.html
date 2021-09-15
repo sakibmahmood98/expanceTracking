@@ -16,6 +16,7 @@
               type="text" 
               name="text" 
               formControlName="text" 
+              placeholder="Salary"
               >
             </p>
            
@@ -26,6 +27,7 @@
               type="text" 
               name="amount" 
               formControlName="amount"
+              placeholder="2000"
               >
             </p>
 
@@ -50,5 +52,14 @@
         </button>
     </li>
 </ul>
+
+<!-- <form [formGroup]="form">
+    <div *ngFor="let field of retrieveData">
+        <input [formControlName]="field.text">
+        <button>{{field.text}}</button>
+        
+    </div>
+</form>
+{{form?.value|json}} -->
 
 </div>
