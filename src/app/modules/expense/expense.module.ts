@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ExpenseRoutingModule } from './expense-routing.module';
 import { ExpenseComponent } from './expense.component';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
 import { MatListModule } from '@angular/material/list';
 
@@ -22,7 +22,6 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule,
     CoreModule
 
   ]

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Data } from 'src/app/core/models/data';;
 import { StorageService } from 'src/app/core/storage.service';
 
@@ -14,6 +14,7 @@ export class ExpenseComponent implements OnInit {
   public retrieveData!: Data[];
   storage = 'expenseStorage';
   totalExpense = 0;
+  @ViewChild('f') form: any;
 
   constructor(private service: StorageService) {
     this.expenseData = [
@@ -30,8 +31,9 @@ export class ExpenseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addExpenses(text: any, amount:string) {
-    var numberamount: number = +amount
+    onSubmit(dataForm: { value: any; }) {
+    let text = dataForm.value.text;
+    var numberamount: number = +dataForm.value.amount;
 
     this.expenseData.push(this.service.addData(text, numberamount));
     this.totalExpense = this.totalExpense + this.expenseData[this.expenseData.length - 1 ].amount ; 
@@ -48,14 +50,11 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-
   updateLocalStorage() {
 
     this.service.setLocatStorageDatas(this.expenseData, this.storage);
     this.retrieveData = this.service.getDatas(this.storage);
-
   }
-
 
 }
 

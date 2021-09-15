@@ -7,37 +7,34 @@
 <div>
     <div class="display-center">
 
-<form>
-    <mat-form-field appearance="fill">
-      <mat-label>Text Field</mat-label>
-      <input matInput placeholder="Home Bill" id="text" name="text" #text>
-    </mat-form-field>
+        <form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm)">
+            <p>
+              <label for="text">Text</label>
+              <input type="text" name="text" #text ngModel>
+            </p>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Amount</mat-label>
-        <input matInput placeholder="1000" id="amount" name="amount" #amount>
-    </mat-form-field>
-</form>
+            <p>
+              <label for="amount">Amount</label>
+              <input type="text" name="amount" #amount ngModel>
+            </p>
 
-    <button (click)="addExpenses(text.value, amount.value)"
-      mat-stroked-button color="basic"
-      > Submit</button>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
 
- 
 <div class="display-center">
 
-    {{totalExpense | currency:'BDT ' : true: '3.2-2'}}
+    {{totalExpense | currency:'BDT ' : 'symbol' : '3.2-2'}}
 
 </div>
 
 </div>
-<mat-list>
-    <mat-list-item class="list-center"  *ngFor="let data of retrieveData" >
+<ul>
+    <li class="list-center"  *ngFor="let data of retrieveData" >
     {{data.text}} : {{data.amount}}
 
-    <button (click)="removeExpenseItem(data.text)"
-      mat-stroked-button color="basic"
-      > Delete</button>
-    </mat-list-item>
-</mat-list>
+    <button type="button" (click)="removeExpenseItem(data.text)"> Delete</button>
+    </li>
+</ul>
 </div>
