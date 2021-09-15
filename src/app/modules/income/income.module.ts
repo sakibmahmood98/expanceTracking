@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CoreModule } from 'src/app/core/core.module';
     IncomeRoutingModule,
     MatInputModule,
     MatButtonModule,
+    MatListModule,
     FormsModule,
     ReactiveFormsModule,
     CoreModule

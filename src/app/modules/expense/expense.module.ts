@@ -7,6 +7,8 @@ import { ExpenseComponent } from './expense.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
+import { MatListModule } from '@angular/material/list';
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { CoreModule } from 'src/app/core/core.module';
     ExpenseRoutingModule,
     MatInputModule,
     MatButtonModule,
+    MatListModule,
     FormsModule,
     ReactiveFormsModule,
     CoreModule

@@ -31,12 +31,14 @@
 
 
 </div>
-<li *ngFor="let data of retrieveData">
-    {{data.text}} : {{data.amount}}
+<mat-list>
+    <mat-list-item class="list-center" *ngFor="let data of retrieveData">
+        {{data.text}} : {{data.amount}}
     
     <button (click)="removeIncomeItem(data.text)"
-      mat-stroked-button color="basic"
-      > Delete</button>
+    mat-stroked-button color="basic"
+    > Delete</button>
 
-</li>
+    </mat-list-item>
+</mat-list>
 </div>
