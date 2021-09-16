@@ -10,7 +10,6 @@ import { CoreModule } from 'src/app/core/core.module';
 import { MatListModule } from '@angular/material/list';
 
 
-
 @NgModule({
   declarations: [
     ExpenseComponent
@@ -23,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
     MatListModule,
     FormsModule,
     CoreModule
+
 
   ]
 })

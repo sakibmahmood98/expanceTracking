@@ -8,10 +8,12 @@
     <div class="display-center">
 
         <form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm)">
+            
             <p>
               <label for="text">Text</label>
               <input type="text" name="text" placeholder="Type Expenses" #text ngModel>
             </p>
+   
 
             <p>
               <label for="amount">Amount</label>
@@ -19,8 +21,16 @@
             </p>
 
             <p>
-                <button type="submit">Submit</button>
+                <label for="date">Birthday:</label>
+                <input type="date" name="date" #date ngModel>
+                
             </p>
+
+            <p>
+                <button class="button" type="submit">Submit</button>
+            </p>
+
+            
         </form>
 
 <div class="display-center">
@@ -30,11 +40,13 @@
 </div>
 
 </div>
+
 <ul>
-    <li class="list-center"  *ngFor="let data of retrieveData" >
+    <li   *ngFor="let data of retrieveData" >
     {{data.text}} : {{data.amount}}
 
-    <button type="button" (click)="removeExpenseItem(data.text)"> Delete</button>
+    <button class="button" type="button" (click)="removeExpenseItem(data.text)"> Delete</button>
     </li>
 </ul>
+
 </div>

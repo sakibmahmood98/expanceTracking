@@ -11,11 +11,23 @@ export class StorageService{
     
   }
 
-  public addData(text: string, amount: number) : any {
-    let data ={ text: text, amount: amount};
+  public addData(text: string, amount: number, dateData: string) : any {
+
+    let dateDatas = dateData.split('-',3);
+    let month = dateDatas[1];
+    let year = dateDatas[0];
+    let date = dateDatas[2];
+    let data ={ text: text, amount: amount, month: month, year: year};
 
     return data;
     
+  }
+
+  public getDatainNumber(data: string)
+  {
+    
+    let datainNumber : number =  +data;
+    return datainNumber
   }
 
   public setLocatStorageDatas(datas: Data[], storage: string):void {
