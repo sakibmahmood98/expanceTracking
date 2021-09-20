@@ -1,0 +1,25 @@
+.button {
+  
+    transition-duration: 0.6s;
+    background-color: white;
+    border-radius: 6px;
+    width: 70px;
+    height: 35px;
+    color: black;
+    border: 1px solid #e7e7e7;
+  }
+  
+  .button:hover {
+    background-color: #e7e7e7;
+  }
+
+  input[type="text"],
+input[type="text"]:focus  {
+  height: 20px;
+  margin-left: auto;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}

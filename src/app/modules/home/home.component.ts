@@ -22,4 +22,8 @@ export class HomeComponent implements OnInit {
 
   }
 
+  toPosts() {
+    this.router.navigate(['posts'], {relativeTo:this.route});
+  }
+
 }
